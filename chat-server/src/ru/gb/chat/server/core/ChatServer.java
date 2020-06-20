@@ -160,6 +160,10 @@ public class ChatServer implements ServerSocketThreadListener, SocketThreadListe
                 sendToAllAuthorizedClients(Library.getTypeBroadcast(
                         client.getNickname(), arr[1]));
                 break;
+            case Library.CLIENT_CHANGE_NICKNAME:
+                sendToAllAuthorizedClients(Library.getClientChangeNickname(msg));
+                break;
+
             default:
                 client.sendMessage(Library.getMsgFormatError(msg));
         }

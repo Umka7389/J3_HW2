@@ -117,7 +117,13 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
         if ("".equals(msg)) return;
         tfMessage.setText(null);
         tfMessage.grabFocus();
-        socketThread.sendMessage(Library.getTypeBcastClient(msg));
+        String[] arr = msg.split(Library.DELIMITER);
+        String msgType = arr[0];
+        if (msgType == Library.CLIENT_CHANGE_NICKNAME){
+            socketThread.sendMessage(msg);
+        } else {
+            socketThread.sendMessage(Library.getTypeBcastClient(msg));
+        }
     }
 
     private void wrtMsgToLogFile(String msg, String username) {
