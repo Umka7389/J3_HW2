@@ -38,4 +38,15 @@ public class SqlClient {
         }
         return null;
     }
+
+    synchronized static void changeNickname (String login, String newNickname) {
+        try {
+            statement.executeUpdate(
+                    String.format("UPDATE users SET nickname ='%s' WHERE login ='%s'",
+                            newNickname, login));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

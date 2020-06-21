@@ -48,7 +48,7 @@ public class Library {
     public static String getUserList(String users) {
         return USER_LIST + DELIMITER + users;
     }
-    public static String getClientChangeNickname(String msg) {
-        return CLIENT_CHANGE_NICKNAME + DELIMITER + msg;
+    public static String getClientChangeNickname(String login, String newNickname) {
+        return CLIENT_CHANGE_NICKNAME + DELIMITER + login + DELIMITER + newNickname;
     }
 }

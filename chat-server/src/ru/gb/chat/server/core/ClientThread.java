@@ -9,6 +9,7 @@ import java.net.Socket;
 public class ClientThread extends SocketThread {
 
     private String nickname;
+    private String login;
     private boolean isAuthorized;
     private boolean isReconnecting;
 
@@ -24,6 +25,9 @@ public class ClientThread extends SocketThread {
         return nickname;
     }
 
+    public String getLogin() {
+        return login;
+    }
     public boolean isAuthorized() {
         return isAuthorized;
     }
@@ -44,8 +48,18 @@ public class ClientThread extends SocketThread {
         close();
     }
 
+/*
+    void changeNickname(String login, String newNickname) {
+        this.login = login;
+        nickname = newNickname;
+        sendMessage(Library.getClientChangeNickname(login, newNickname));
+        close();
+    }
+*/
+
     void msgFormatError(String msg) {
         sendMessage(Library.getMsgFormatError(msg));
         close();
     }
+
 }
