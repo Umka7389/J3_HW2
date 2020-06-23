@@ -148,7 +148,6 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
             while (in.readLine() != null){
                 totalLineNumbers++;
             }
-            System.out.println(totalLineNumbers);
             in.close();
         } catch (IOException e) {
             e.printStackTrace();
